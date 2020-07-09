@@ -14,7 +14,7 @@ function PopupOpened() {
 function PopupClosed() {
     popup.classList.remove('popup_opened');
     nameInput.value = name1.textContent;
-    jobInput.value = name2.textContent;;
+    jobInput.value = name2.textContent;
 }
 
 ProfileButton.addEventListener('click', PopupOpened);

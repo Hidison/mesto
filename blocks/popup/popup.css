@@ -3,6 +3,7 @@
 @import url(./__form/popup__form.css);
 @import url(./__form-submit/popup__form-submit.css);
 @import url(./__form-text/popup__form-text.css);
+@import url(./__form-text/_type/popup__form-text_type_job.css);
 @import url(./__title/popup__title.css);
 
 .popup {
