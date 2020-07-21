@@ -7,7 +7,10 @@
 @import url(./__title/popup__title.css);
 
 .popup {
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
