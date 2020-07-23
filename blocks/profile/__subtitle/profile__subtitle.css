@@ -8,6 +8,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    flex-basis: 100%;
 }
 
 @media screen and (max-width: 840px) {
@@ -22,5 +23,6 @@
     	font-size: 14px;
         line-height: 17px;
         max-width: 224px;
+        text-align: center;
     }
 }
