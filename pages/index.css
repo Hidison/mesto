@@ -7,56 +7,7 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/button-like/button-like.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/footer/footer.css);
-
-.button-like_active {
-	background-image: url(../images/button_like_black.svg);
-}
-
-.element__remove_image {
-	    position: absolute;
-    background-image: url(../images/remove_image.svg);
-    background-size: 18px 20px;
-    width: 18px;
-    height: 20px;
-    top: 18px;
-    right: 16px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    outline: none;
-    background-color: unset;
-}
-
-.element__remove_image:hover {
-	cursor: pointer;
-	opacity: 0.6;
-	transition: opacity 0.5s ease;
-}
-
-.popup__container_type_full-image {
-	width: auto;
-    height: auto;
-    background: none;
-    box-shadow: none;
-    border-radius: none;
-}
-
-.popup__full-image {
-	max-width: 75vw;
-    max-height: 75vh;
-}
-
-.popup__title_type_full-image {
-	padding-left: 0;
-	padding-top: 10px;
-	color: #FFFFFF;
-	font-weight: normal;
-	font-size: 12px;
-    line-height: 15px;
-}
-
-.popup__form-text_type_link {
-	margin-top: 30px;
-}

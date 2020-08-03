@@ -1,10 +1,18 @@
 @import url(./__close-button/popup__close-button.css);
 @import url(./__container/popup__container.css);
+@import url(./__container/_type/popup__container_type_full-image.css);
 @import url(./__form/popup__form.css);
+@import url(./__form-text-error/popup__form-text-error.css);
+@import url(./__form-text-error/_active/popup__form-text-error_active.css);
+@import url(./__full-image/popup__full-image.css);
 @import url(./__form-submit/popup__form-submit.css);
 @import url(./__form-text/popup__form-text.css);
 @import url(./__form-text/_type/popup__form-text_type_job.css);
+@import url(./__form-text/_type/popup__form-text_type_error.css);
+@import url(./__form-text/_type/popup__form-text_type_link.css);
+@import url(./__form-set/popup__form-set.css);
 @import url(./__title/popup__title.css);
+@import url(./__title/_type/popup__title_type_full-image.css);
 
 .popup {
   display: flex;

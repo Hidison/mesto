@@ -149,3 +149,21 @@ function renderCard(data) {
 initialCards.forEach((data) => {
 	renderCard(data);
 })
+
+document.addEventListener('keydown', (evt) => {
+	const popupList = document.querySelectorAll('.popup');
+	if (evt.keyCode == 27) {
+		for (var i = 0; i < popupList.length; i++) {
+			popupList[i].classList.remove('popup_opened');
+		};
+	};
+});
+
+document.addEventListener('mousedown', (evt) => {
+	const popupList = document.querySelectorAll('.popup');
+	if (evt.target.classList.contains('popup_opened')) {
+		for (var i = 0; i < popupList.length; i++) {
+			popupList[i].classList.remove('popup_opened');
+		};
+	};
+});
