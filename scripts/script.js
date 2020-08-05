@@ -165,7 +165,6 @@ initialCards.forEach((data) => {
 const popupList = document.querySelectorAll('.popup');
 
 function closePopupEsc(evt) {
-	console.log(1);
 	if (evt.keyCode == 27) { 
 		for (var i = 0; i < popupList.length; i++) {
 			if (popupList[i].classList.contains('popup_opened')) {
@@ -178,7 +177,6 @@ function closePopupEsc(evt) {
 }; 
 
 function closePopupMousedown(evt) {
-	console.log(2);
 	if (evt.target.classList.contains('popup_opened')) { 
 		for (var i = 0; i < popupList.length; i++) {
 			if (popupList[i].classList.contains('popup_opened')) {
