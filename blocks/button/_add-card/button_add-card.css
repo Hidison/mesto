@@ -1,4 +1,4 @@
-.profile__button {
+.button_add-card {
 	background-image: url(../../../images/vector.svg);
 	background-size: 22px 22px;
 	background-repeat: no-repeat;
@@ -12,14 +12,14 @@
     outline: none;
 }
 
-.profile__button:hover {
+.button_add-card:hover {
 	cursor: pointer;
 	opacity: 0.6;
     transition: opacity 0.5s ease;
 }
 
 @media screen and (max-width: 740px) {
-    .profile__button {
+    .button_add-card {
     	width: 100%;
     	margin-top: 28px;
     }

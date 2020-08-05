@@ -21,7 +21,7 @@
 					<button type="button" class="profile__edit-button"></button>
 					<p class="profile__subtitle">Исследователь океана</p>
 				</div>
-				<button type="button" class="profile__button"></button>
+				<button type="button" class="button_add-card"></button>
 			</section>
 			<section class="elements">
 
@@ -55,14 +55,14 @@
 						<span class='popup__form-text-error' id='title-input-error'></span>
 						<input type="url" name="link" placeholder="Ссылка на картинку" class="popup__form-text popup__form-text_type_link" id='url-input' autocomplete="off" required>
 						<span class='popup__form-text-error' id='url-input-error'></span>
-						<input type="submit" value="Создать" class="popup__form-submit">
+						<input type="submit" value="Создать" class="popup__form-submit popup__form-submit_type_add-card">
 					</fieldset>
 				</form>
 			</div>
 		</section>
 		<section class="popup popup_type_full-image">
 			<div class="popup__container popup__container_type_full-image">
-				<img class="popup__full-image" alt="иллюстрация пейзажа">
+				<img class="popup__full-image">
 				<button type="button" class="popup__close-button"></button>
 				<h3 class="popup__title popup__title_type_full-image"></h3>
 			</div>
@@ -71,7 +71,7 @@
 
 	<template id="element-template">
 		<div class="element"> 
-			<img alt="иллюстрация пейзажа" class="element__image">
+			<img class="element__image">
 			<div class="element__info">
 				<h4 class="element__title"></h4>
 				<button type="button" class="element__button-like"></button>
