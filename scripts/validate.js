@@ -27,10 +27,14 @@ const hasInvalidInput = (inputList) => {
 	});
 };
 
+function deactivateButton(buttonElement) {
+	buttonElement.classList.add('button_inactive');
+	buttonElement.setAttribute('disabled', '');
+}
+
 const toggleButtonState = (inputList, buttonElement) => {
 	if (hasInvalidInput(inputList)) {
-		buttonElement.classList.add('button_inactive');
-		buttonElement.setAttribute('disabled', '');
+		deactivateButton(buttonElement);
 	} else {
 		buttonElement.classList.remove('button_inactive');
 		buttonElement.removeAttribute('disabled', '');
