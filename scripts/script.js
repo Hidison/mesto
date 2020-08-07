@@ -161,18 +161,16 @@ initialCards.forEach((data) => {
 	renderCard(data);
 })
 
-const keyCodeEsc = 27; 
+const keyCodeEsc = 27;
 
 function closePopupEsc(evt) {
 	if (evt.keyCode == keyCodeEsc)  {
-		document.querySelector('.popup_opened').classList.remove('popup_opened');
-		closePopup(popup);
+		closePopup(document.querySelector('.popup_opened'));
 	}
 };
 
 function closePopupMousedown(evt) {
 	if (evt.target.classList.contains('popup_opened')) { 
-		document.querySelector('.popup_opened').classList.remove('popup_opened');
-		closePopup(popup);
+		closePopup(document.querySelector('.popup_opened'));
 	}
 };
