@@ -32,17 +32,17 @@ class FormValidator {
 		});
 	}
 
-	_deactivateButton = () => {
-		this._buttonElement.classList.add('button_inactive');
-		this._buttonElement.setAttribute('disabled', '');
-	}
+	deactivateButton() { 
+		this._buttonElement.classList.add('button_inactive'); 
+		this._buttonElement.disabled = true; 
+	} 
 
 	_toggleButtonState() {
 		if (this._hasInvalidInput()) {
-			this._deactivateButton();
+			this.deactivateButton();
 		} else {
 			this._buttonElement.classList.remove(this._settings.inactiveButtonClass);
-			this._buttonElement.removeAttribute('disabled', '');
+			this._buttonElement.disabled = false; 
 		}
 	}
 

@@ -27,13 +27,13 @@ const buttonElementAddCard = document.querySelector('.popup__form-submit_type_ad
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
-	document.addEventListener('keydown', closePopupEsc);
+	document.addEventListener('keyup', closePopupEsc);
 	document.addEventListener('mousedown', closePopupMousedown);
 } 
 
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
-	document.removeEventListener('keydown', closePopupEsc);
+	document.removeEventListener('keyup', closePopupEsc);
 	document.removeEventListener('mousedown', closePopupMousedown);
 }
 
@@ -61,7 +61,7 @@ addCardButton.addEventListener('click', function () {
 	titleInput.value = '';
 	linkInput.value = '';
 	openPopup(popupAddCard);
-	deactivateButton(buttonElementAddCard);
+	addCardFormValidator.deactivateButton();
 });
 
 formAddCard.addEventListener('submit', formSubmitAddCard);
@@ -116,31 +116,26 @@ import Card from './Card.js';
 
 const renderCard = (item) => {
 	const card = new Card(item, '#element-template');
-  const cardElement = card.generateCard();
+	const cardElement = card.generateCard();
 	elements.prepend(cardElement);
 }
 
 initialCards.forEach((item) => {
-    renderCard(item);
+	renderCard(item);
 });
-
-function deactivateButton(buttonElement) {
-	buttonElement.classList.add('button_inactive');
-	buttonElement.setAttribute('disabled', '');
-}
 
 const keyCodeEsc = 27;
 
 function closePopupEsc(evt) {
-  if (evt.keyCode == keyCodeEsc)  {
-    closePopup(document.querySelector('.popup_opened'));
-  }
+	if (evt.keyCode == keyCodeEsc)  {
+		closePopup(document.querySelector('.popup_opened'));
+	}
 };
 
 function closePopupMousedown(evt) {
-  if (evt.target.classList.contains('popup_opened')) { 
-    closePopup(document.querySelector('.popup_opened'));
-  }
+	if (evt.target.classList.contains('popup_opened')) { 
+		closePopup(document.querySelector('.popup_opened'));
+	}
 };
 
 import FormValidator from './FormValidator.js';
