@@ -61,7 +61,6 @@ addCardButton.addEventListener('click', function () {
 	titleInput.value = '';
 	linkInput.value = '';
 	openPopup(popupAddCard);
-	addCardFormValidator.deactivateButton();
 });
 
 formAddCard.addEventListener('submit', formSubmitAddCard);
