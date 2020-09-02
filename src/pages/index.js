@@ -23,10 +23,10 @@ import {
 } from '../utils/constants.js';
 
 
-const ElementFullImage = new PopupWithImage(popupElementFullImage);
+const elementFullImage = new PopupWithImage(popupElementFullImage);
 
 const clickCard = (name, link) => {
-	ElementFullImage.open(name, link);
+	elementFullImage.open(name, link);
 }
 
 const CardList = new Section({
@@ -95,7 +95,7 @@ const addCardFormValidator = new FormValidator(defultConfig, addCardFormElement)
 
 modalEditProfile.setEventListeners();
 modalAddCard.setEventListeners();
-ElementFullImage.setEventListeners();
+elementFullImage.setEventListeners();
 
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
