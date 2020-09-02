@@ -1,19 +1,16 @@
 import Popup from './Popup.js';
 
-import {
-	defultConfig
-  } from '../utils/constants.js';
-
 class PopupWithForm extends Popup {
     constructor( {popupSelector, handleFormSubmit} ) {
       super(popupSelector);
       this._popup = super.takePopup();
       this._handleFormSubmit = handleFormSubmit;
+      this._inputSelectors = this._popup.querySelectorAll('.popup__form-text');
     }
 
     _getInputValues() {
       this._formValues = {};
-      this._inputList = Array.from(this._popup.querySelectorAll(defultConfig.inputSelector));
+      this._inputList = Array.from(this._inputSelectors);
       
       this._inputList.forEach(input => this._formValues[input.name] = input.value);
       

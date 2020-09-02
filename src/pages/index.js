@@ -29,21 +29,24 @@ const clickCard = (name, link) => {
 	elementFullImage.open(name, link);
 }
 
+const renderCard = function (data, cardSelector) {
+	return new Card({
+		data: data,
+		handleCardClick: (name, link) => {
+			clickCard(name, link);
+		},
+	}, cardSelector);
+}
+
 const CardList = new Section({
 	data: initialCards,
 	renderer: (item) => {
-		const card = new Card({
-			data: item,
-			handleCardClick: (name, link) => {
-				clickCard(name, link);
-			},
-		}, '#element-template');
+		const card = renderCard(item, '#element-template');
 
 		const cardElement = card.generateCard();
 		CardList.setItem(cardElement);
 	},
-},
-	elements
+}, elements
 );
 
 CardList.addItem();
@@ -51,15 +54,6 @@ CardList.addItem();
 const modalAddCard = new PopupWithForm({
 	popupSelector: popupAddCard,
 	handleFormSubmit: (value) => {
-		const renderCard = function (data, cardSelector) {
-			return new Card({
-				data: data,
-				handleCardClick: (name, link) => {
-					clickCard(name, link);
-				},
-			}, cardSelector);
-		}
-
 		const card = renderCard({ name: value.title, link: value.link }, '#element-template');
 
 		CardList.setItem(card.generateCard());
