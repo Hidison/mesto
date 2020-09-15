@@ -1,6 +1,7 @@
 .element__info {
 	display: flex;
 	justify-content: space-between;
-	padding: 25px 20px 31px 20px;
+	align-items: center;
+	padding: 25px 20px 25px 20px;
 	box-sizing: border-box;
 }

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<title>Mesto Russia</title>
 </head>
 
@@ -17,7 +17,9 @@
 		</header>
 		<main>
 			<section class="profile">
-				<img src="images/zhak-iv_kusto.png" alt="портрет человека" class="profile__avatar">
+				<div class="profile__avatar">
+					<img src="images/zhak-iv_kusto.png" alt="портрет человека" class="profile__avatar-icon">
+				</div>
 				<div class="profile__info">
 					<h1 class="profile__title">Жак-Ив Кусто</h1>
 					<button type="button" class="profile__edit-button"></button>
@@ -71,6 +73,33 @@
 				</form>
 			</div>
 		</section>
+		<section class="popup popup_type_edit-avatar">
+			<div class="popup__container popup__container_type_edit-avatar">
+				<button type="button" class="popup__close-button"></button>
+				<h3 class="popup__title">Обновить аватар</h3>
+				<form class="popup__form popup__form_type_edit-avatar" novalidate>
+					<fieldset class="popup__form-set">
+						<input type="url" name="link" placeholder="Ссылка на картинку"
+							class="popup__form-text popup__form-text_type_link" id='url-input' autocomplete="off"
+							required>
+						<span class='popup__form-text-error' id='url-input-error'></span>
+						<input type="submit" value="Сохранить"
+							class="popup__form-submit popup__form-submit_type_edit-avatar">
+					</fieldset>
+				</form>
+			</div>
+		</section>
+		<section class="popup popup_type_del-card">
+			<div class="popup__container popup__container_type_del-card">
+				<button type="button" class="popup__close-button"></button>
+				<h3 class="popup__title">Вы уверены?</h3>
+				<form class="popup__form" novalidate>
+					<fieldset class="popup__form-set">
+						<input type="submit" value="Да" class="popup__form-submit popup__form-submit_type_del-card">
+					</fieldset>
+				</form>
+			</div>
+		</section>
 		<section class="popup popup_type_full-image">
 			<div class="popup__container popup__container_type_full-image">
 				<img class="popup__full-image">
@@ -85,7 +114,10 @@
 			<img class="element__image">
 			<div class="element__info">
 				<h4 class="element__title"></h4>
-				<button type="button" class="element__button-like"></button>
+				<div class="element__place-like">
+					<button type="button" class="element__button-like"></button>
+					<span class="element__like-count">0</span>
+				</div>
 			</div>
 			<button type="button" class="element__remove_image"></button>
 		</div>

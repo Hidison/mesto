@@ -1,9 +1,13 @@
 class Card {
-	constructor({ data, handleCardClick }, cardSelector) {
+	constructor({ data, userData, handleCardClick, handleLikeClick, handleDeleteIconClick }, cardSelector) {
 		this._cardSelector = cardSelector;
 		this._name = data.name;
 		this._handleCardClick = handleCardClick;
 		this._link = data.link;
+		this._data = data;
+		this._handleLikeClick = handleLikeClick;
+		this._handleDeleteIconClick = handleDeleteIconClick;
+		this._userData = userData
 	}
 
 	_getTemplate() {
@@ -19,8 +23,8 @@ class Card {
 	generateCard() {
 		this._element = this._getTemplate();
 		this._setEventListeners();
-
-		this._elementImage = this._element.querySelector('.element__image');
+		this._setDeleteIcon();
+		this.updateLikesNumber(this._data);
 
 		this._elementImage.src = this._link;
 		this._elementImage.alt = this._name;
@@ -29,30 +33,43 @@ class Card {
 		return this._element;
 	}
 
-	_likeCard(evt) {
-		evt.target.classList.toggle('button-like_active');
+	isLiked() {
+		if (this._data.likes.some((like) => like._id === this._userData._id))
+			return true
+		else return false
 	}
 
-	_deleteCard() {
-		this._element.remove();
-		this._element = null;
+	updateLikesNumber(data) {
+		this._data = data;
+		this._likeCounter.textContent = this._data.likes.length;
+		if (this.isLiked()) {
+			this._cardLikeButton.classList.add('button-like_active')
+		} else {
+			this._cardLikeButton.classList.remove('button-like_active')
+		}
+	}
+
+	_setDeleteIcon() {
+		if (this._userData._id !== this._data.owner._id)
+			this._element.querySelector('.element__remove_image').remove()
 	}
 
 	_setEventListeners() {
-		const cardLikeButton = this._element.querySelector('.element__button-like');
-		const cardDeleteButton = this._element.querySelector('.element__remove_image');
-		const elementFullImage = this._element.querySelector('.element__image');
+		this._cardDeleteButton = this._element.querySelector('.element__remove_image');
+		this._cardLikeButton = this._element.querySelector('.element__button-like');
+		this._elementImage = this._element.querySelector('.element__image');
+		this._likeCounter = this._element.querySelector('.element__like-count');
 
-		cardLikeButton.addEventListener('click', (evt) => {
-			this._likeCard(evt);
+		this._cardLikeButton.addEventListener('click', () => {
+			this._handleLikeClick(this._data._id)
 		});
 
-		cardDeleteButton.addEventListener('click', () => {
-			this._deleteCard();
+		this._cardDeleteButton.addEventListener('click', () => {
+			this._handleDeleteIconClick(this._element, this._data._id)
 		});
 
-		elementFullImage.addEventListener('click', () => {
-			this._handleCardClick(this._name, this._link);
+		this._elementImage.addEventListener('click', () => {
+			this._handleCardClick(this._name, this._link)
 		});
 	}
 }
