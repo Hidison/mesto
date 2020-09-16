@@ -71,13 +71,13 @@ const renderCard = function (data, userData, cardSelector) {
 	return card;
 }
 
-const CardList = new Section({
+const cardList = new Section({
 	data: {},
 	renderer: (item, userData) => {
 		const card = renderCard(item, userData, '#element-template');
 
 		const cardElement = card.generateCard();
-		CardList.setItem(cardElement);
+		cardList.setItem(cardElement);
 	},
 }, elements
 );
@@ -87,8 +87,35 @@ const promises = [api.getInitialCards(), api.getPersonInfo()]
 Promise.all(promises)
 	.then(([resCard, resUser]) => {
 		user.setUserInfo(resUser._id, resUser.name, resUser.about, resUser.avatar)
-		CardList.setRenderedItems(resCard);
-		CardList.addItem(resUser)
+		cardList.setRenderedItems(resCard);
+		cardList.addItem(resUser);
+
+		profileEditButton.addEventListener('click', () => {
+			editProfileFormValidator.disableInputError();
+			editProfileFormValidator.activeButton();
+			editProfileFormElement.reset();
+			modalEditProfile.open();
+			const userData = user.getUserInfo();
+			editProfileFormElement.name.value = userData.name;
+			editProfileFormElement.job.value = userData.about;
+		});
+		
+		profileAvatar.addEventListener('click', () => {
+			editAvatarFormValidator.disableInputError();
+			editAvatarFormValidator.activeButton();
+			editAvatarFormElement.reset();
+			modalEditAvatar.open();
+			editAvatarFormElement.link.value = user.getUserInfo().avatar;
+		});
+
+		addCardButton.addEventListener('click', () => {
+			addCardFormValidator.disableInputError();
+			addCardFormValidator.deactivateButton();
+			addCardFormElement.reset();
+			modalAddCard.open();
+			addCardFormElement.title.value = '';
+			addCardFormElement.link.value = '';
+		});
 	})
 	.catch((error) => {
 		console.log(error)
@@ -116,7 +143,7 @@ const modalAddCard = new PopupWithForm({
 			.then(data => {
 				const card = renderCard(data, user.getUserInfo(), '#element-template');
 
-				CardList.setItem(card.generateCard());
+				cardList.setMyItem(card.generateCard());
 				modalAddCard.close();
 				renderLoading(popupAddCard, false);
 			})
@@ -124,12 +151,6 @@ const modalAddCard = new PopupWithForm({
 				console.log(error)
 			});
 	},
-});
-
-addCardButton.addEventListener('click', () => {
-	modalAddCard.open();
-	addCardFormElement.title.value = '';
-	addCardFormElement.link.value = '';
 });
 
 const user = new UserInfo({
@@ -182,18 +203,6 @@ const modalDelCard = new PopupWithDel({
 				console.log(error)
 			})
 	}
-});
-
-profileEditButton.addEventListener('click', () => {
-	modalEditProfile.open();
-	const userData = user.getUserInfo();
-	editProfileFormElement.name.value = userData.name;
-	editProfileFormElement.job.value = userData.about;
-});
-
-profileAvatar.addEventListener('click', () => {
-	modalEditAvatar.open();
-	editAvatarFormElement.link.value = '';
 });
 
 const editProfileFormValidator = new FormValidator(defultConfig, editProfileFormElement);

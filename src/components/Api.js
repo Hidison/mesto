@@ -17,9 +17,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     getPersonInfo() {
@@ -37,9 +34,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     sendUserInformation(data) {
@@ -61,9 +55,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     addNewCard(data) {
@@ -85,9 +76,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     delCard(cardId) {
@@ -105,9 +93,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     likeCard(cardId) {
@@ -125,9 +110,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     removelikeCard(cardId) {
@@ -145,9 +127,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
     editAvatar(data) {
@@ -168,9 +147,6 @@ class Api {
 
                 return Promise.reject(`Ошибка: ${res.status}`);
             })
-            .catch(err => {
-                console.log(`Ошибка: ${err}`);
-            });
     }
 
 }
